@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="character.css">
+    <link rel="stylesheet" href="dark-mode.css">
     <title>Random Character</title>
 </head>
-<body>
-    
+<body class="dark-mode">
+    <button id="theme-toggle" class="light-mode">&#9728</button>
+
+    <div class="container">
+        <div id="character-box">
+            <p id="character-text"></p>
+            <img id="character-image" src="" alt="Картинка персонажа">
+        </div>
+        <button id="generate">Создать персонажа</button>
+    </div>
+
+    <script src="character.js"></script>
+    <script src="dark-mode.js"></script>
 </body>
 </html>
