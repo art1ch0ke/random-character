@@ -1,4 +1,9 @@
-const themeToggle = document.getElementById("theme-toggle");
+    // const themeToggle = document.createElement("button");
+    // themeToggle.id = "theme-toggle";
+    // themeToggle.classList.add("dark-mode");
+    // themeToggle.textContent = "🌙";
+    // document.body.prepend(themeToggle);
+
 
 themeToggle.addEventListener("click", ()=> {
     if(document.body.classList.contains("dark-mode")) {
@@ -19,5 +24,23 @@ themeToggle.addEventListener("click", ()=> {
         themeToggle.classList.remove("dark-mode");
         themeToggle.classList.add("light-mode");
     }
-    console.log(1);
+
+
+  
+    
 });
+
+// const timer = document.createElement("div");
+// timer.id = 'timer';
+// let seconds = 0;
+// timer.textContent = "1234";
+// timer.style.color = "red";
+// timer.style.margin = "100px auto";
+// document.body.appendChild(timer);
+// let simpleTimer = setInterval(()=> {
+//     seconds++;
+//     timer.textContent = seconds;
+// }, 1000);
+// setTimeout (()=>{
+//     clearInterval(simpleTimer);
+// }, 60000);

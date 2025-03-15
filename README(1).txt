@@ -2,11 +2,10 @@
 
 
 В папке с вашими проектами создайте новую папку "Random character".
-Скопируйте в неё папку images с рабочего стола.
 Создайте файлы index.html, dark-mode.js, dark-mode.css и reset.css.
 Вставьте в reset.css minimal css reset, скопированный в google.
 Разверните базовую структуру документа в index.html и
-подключите reset.css, character.css и character.js.
+подключите reset.css, dark-mode.css и dark-mode.js.
 Поменяйте цвет фона в body на #222, чтобы убедиться, 
 что всё работает нормально.
 Выведите console.log(7); чтобы убедиться, 
@@ -66,12 +65,13 @@ SCRIPT
 есть ли в body необходимый класс, и если есть, 
 удалите его и добавьте противположный.
 
+document.body.classList.contains()
 document.body.classList.remove("название")
                         .add("название")
 
 Для проверки есть ли у body класс темы,
 используйте document.body.classList.contains("название")
-
+themeToggle.textContent = ""
 Внутри if и else после смены темы body, 
 переключите стили и для кнопкок.
 Измените их текст, поменяв смайл солнца, на луну
