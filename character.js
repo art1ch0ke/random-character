@@ -1,42 +1,50 @@
-let names = ["Эдвард", "Морган", "Леон", "София", "Аделина"];
-let classes = ["Воин", "Маг", "Лучник", "Вор"];
-let weapons = ["Меч", "Посох", "Лук", "Кинжал"];
-
-let images = {
+const names = ["Эдвард", "Морган", "Леон", "София", "Аделина"];
+const classes = ["Воин", "Маг", "Лучник", "Вор"];
+const weapons = ["Меч", "Посох", "Лук", "Кинжал"];
+const images = {
     "Воин": "images/warrior.png",
     "Маг": "images/mage.png",
     "Лучник": "images/archer.png",
     "Вор": "images/thief.png"
 };
 
-document.querySelector("#generate").addEventListener("click", function() {
-    let name = names[Math.floor(Math.random() * names.length)];
-    let charClass = classes[Math.floor(Math.random() * classes.length)];
-    let weapon = weapons[Math.floor(Math.random() * weapons.length)];
+document.querySelector("#generate").addEventListener("click", generateCharacter);
 
-    let result = `🛡️ Ваш герой: ${name}, ${charClass}, ${weapon}`;
-    let output = document.querySelector("#character-text");
-    let image = document.querySelector("#character-image");
-    let characterBox = document.querySelector("#character-box");
+function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function generateCharacter() {
+    const character = {
+        name: getRandomElement(names),
+        charClass: getRandomElement(classes),
+        weapon: getRandomElement(weapons),
+        image: "",
+        introduce: function() {
+            return `🛡️ Ваш герой: ${this.name}, ${this.charClass}, ${this.weapon}`;
+        }
+    };
+    character.image = images[character.charClass];
+    updateUI(character);
+}
+
+function updateUI(character) {
+    const output = document.querySelector("#character-text");
+    const image = document.querySelector("#character-image");
+    const characterBox = document.querySelector("#character-box");
 
     characterBox.classList.remove("show");
     characterBox.classList.add("hide");
 
-    setTimeout(()=>{
-        // Обновляем текст и картинку
-        output.textContent = result;
-        image.src = images[charClass];
-        image.alt = charClass;
+    setTimeout(() => {
+        output.textContent = character.introduce();
+        image.src = character.image;
+        image.alt = character.charClass;
 
-        // Анимация появления
         characterBox.classList.remove("hide");
-        void characterBox.offsetWidth; // Перезапускаем анимацию
+        void characterBox.offsetWidth;
         characterBox.classList.add("show", "glow");
 
-        // Убираем эффект свечения через 1 секунду
-        setTimeout(() => {
-            characterBox.classList.remove("glow");
-        }, 1000);
+        setTimeout(() => characterBox.classList.remove("glow"), 1000);
     }, 500);
-
-});
+}

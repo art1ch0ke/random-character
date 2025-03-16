@@ -39,13 +39,12 @@ Sword, Bow, Dagger и Staff
 в котором ключами будут названия классов, 
 а значениями адреса к картинкам.
 
-Навесьте на кнопку generate обработчик события click.
+Создайте функцию getRandomElement(arr) которая 
+с помощью Math.random будет возвращать случайный элемент 
+массива
 
-Создайте переменную output и свяжите
-c id character-text
-Создайте переменную image и свяжите с 
-элементом character-image по id 
-characterBox для id character-box.
+Создайте функцию generateCharacter() 
+и в ней объект characker.
 
 
 КОНЕЦ САМОСТОЯТЕЛЬНОЙ ЧАСТИ.
